@@ -1,1 +1,271 @@
+/* =====================================================
+   PALETA DE CORES (escolhida no Color Hunt: colorhunt.co)
+   TROQUE AQUI: se quiser outra paleta, troque os valores
+   das variáveis abaixo — o resto do site se atualiza sozinho
+   ===================================================== */
+:root {
+  --cor-escura: #2B2D42;
+  --cor-primaria: #3A506B;
+  --cor-secundaria: #5BC0BE;
+  --cor-clara: #EDF6F9;
+  --cor-texto-claro: #ffffff;
+}
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--cor-escura);
+}
+
+/* ===================== HEADER ===================== */
+header {
+  background-color: var(--cor-escura);
+  color: var(--cor-texto-claro);
+  width: 100%;
+  padding: 20px;
+}
+
+.cabecalho-itens {
+  max-width: 1980px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Corrigido: classe agora bate com o HTML (cabecalho-imagem) */
+.cabecalho-imagem {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--cor-secundaria);
+}
+
+.titulo_site {
+  padding: 0 30px;
+  text-align: center;
+  width: 50%;
+  font: 30px "Poppins", sans-serif; /* corrigido: shorthand precisa de tamanho + família */
+}
+
+.sociais {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 25%;
+  gap: 12px;
+}
+
+.sociais-icone {
+  width: 32px;
+  height: 32px;
+}
+
+/* ===================== BANNER ===================== */
+.banner1 {
+  display: flex;
+  justify-content: center;
+  background-color: var(--cor-clara);
+  padding: 20px 0;
+}
+
+.banner-imagem {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===================== SOBRE MIM ===================== */
+.sobre-mim {
+  padding: 50px 10%;
+  text-align: center;
+  background-color: var(--cor-texto-claro);
+}
+
+.sobre-mim_titulo {
+  margin-bottom: 20px;
+  color: var(--cor-primaria);
+}
+
+.sobre-mim_texto {
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===================== AMIGOS / COLEGAS ===================== */
+.amigos_titulo {
+  padding: 50px 0 20px;
+  text-align: center;
+  color: var(--cor-texto-claro);
+}
+
+.amigo-nome {
+  text-align: center;
+}
+
+.amigo-descricao {
+  text-align: center;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.amigo-imagem {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.amigo-icones {
+  display: flex;
+  justify-content: center;
+}
+
+.amigo-icone {
+  width: 32px;
+  padding: 4px 8px;
+}
+
+/* Corrigido: background-image inválido trocado por background-color */
+.amigos {
+  background-color: var(--cor-primaria);
+  padding: 24px 0;
+}
+
+/* Corrigido: .estudante.div (seletor composto incorreto) virou .amigo-div */
+.amigo-div {
+  text-align: center;
+  padding: 24px 16px;
+  background-color: var(--cor-texto-claro);
+  border-radius: 12px;
+  width: 240px;
+}
+
+.amigos_todos {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* ===================== GALERIA (elemento inédito) ===================== */
+.galeria {
+  padding: 50px 10%;
+  text-align: center;
+  background-color: var(--cor-clara);
+}
+
+.galeria_titulo {
+  margin-bottom: 24px;
+  color: var(--cor-primaria);
+}
+
+.galeria_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.galeria-item {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Transição CSS pedida no item 3: efeito de zoom + destaque no hover */
+.galeria-item img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.05);
+}
+
+/* ===================== LOCALIZAÇÃO / MAPA (elemento inédito) ===================== */
+.localizacao {
+  padding: 50px 10%;
+  text-align: center;
+  background-color: var(--cor-texto-claro);
+}
+
+.localizacao_titulo {
+  margin-bottom: 24px;
+  color: var(--cor-primaria);
+}
+
+.mapa-container {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mapa-iframe {
+  width: 100%;
+  height: 400px;
+  border: 0;
+}
+
+/* ===================== RODAPÉ ===================== */
+.rodape {
+  background-image: linear-gradient(var(--cor-primaria), var(--cor-secundaria));
+  color: var(--cor-texto-claro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+  text-align: center;
+}
+
+/* Corrigido: classe agora bate com o HTML (rodape-titulo) */
+.rodape-titulo {
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.logo_rodape {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 12px 0;
+}
+
+.link {
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===================== RESPONSIVIDADE BÁSICA ===================== */
+@media (max-width: 600px) {
+  .cabecalho-itens {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .titulo_site {
+    width: 100%;
+  }
+  .sociais {
+    width: auto;
+  }
+  .amigos_todos {
+    flex-direction: column;
+    align-items: center;
+  }
+}
