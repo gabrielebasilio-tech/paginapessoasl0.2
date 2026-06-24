@@ -269,3 +269,21 @@ header {
     align-items: center;
   }
 }
+.sobre-mim_texto {
+  margin-bottom: 16px;
+}
+
+.sobre-mim_subtitulo {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.sobre-mim_lista {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.sobre-mim_lista li {
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
