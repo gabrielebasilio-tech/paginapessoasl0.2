@@ -76,10 +76,12 @@ header {
 }
 
 .banner-imagem {
-  max-width: 100%;
+  max-width: 500px;   /* diminua esse número para ficar menor ainda, ex: 350px */
+  width: 100%;
   height: auto;
+  display: block;
+  margin: 0 auto;      /* mantém a imagem centralizada */
 }
-
 /* ===================== SOBRE MIM ===================== */
 .sobre-mim {
   padding: 50px 10%;
