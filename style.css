@@ -257,7 +257,7 @@ body{
     transform: rotateY(180deg);
 }
 :root{
-    --eerie-black: #161a1dff;
+    --eerie-black: rgb(255, 255, 255);
     --carnelian: #ba181bff;
     --imperial-red: #e5383bff;
     --silver-chalice: #b1a7a6ff;
