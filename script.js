@@ -1,64 +1,82 @@
-<section class="memory-game">
-        <div class="memory-card" data-arthropoda="abelha">
-            <img src="..." alt="Abelha" class="front-face">
-            <img src="hannibal.png" alt="Artropodes" class="back-face">
-        </div>
+//Definir atalhos
+const qsa = e => document.querySelectorAll(e);
 
-        <div class="memory-card" data-arthropoda="abelha">
-            <img src="..." alt="Abelha" class="front-face">
-            <img src="hannibal.png" alt="Artropodes" class="back-face">
-        </div>
+//Variaveis globais
+const cards = qsa('.memory-card');
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
 
-        <div class="memory-card" data-arthropoda="aranha">
-            <img src="..." alt="Aranha" class="front-face">
-            <img src="hannibal.png" alt="Artropodes" class="back-face">
-        </div>
+//Flip Action
+function flipCard() {
 
-        <div class="memory-card" data-arthropoda="aranha">
-            <img src="..." alt="Aranha" class="front-face">
-            <img src="hannibal.png" alt="Artropodes" class="back-face">
-        </div>
+    if (lockBoard) return;
+    if (this === firstCard) return;
+    
+    this.classList.add('flip');
 
-        <div class="memory-card" data-arthropoda="borboleta">
-            <img src="..." alt="Borboleta" class="front-face">
-            <img src="hannibal.png" alt="Artropodes" class="back-face">
-        </div>
+    if (!hasFlippedCard) {
 
-        <div class="memory-card" data-arthropoda="borboleta">
-            <img src="..." alt="Borboleta" class="front-face">
-            <img src="hannibal.png" alt="Artropodes" class="back-face">
-        </div>
+        //first click
+        hasFlippedCard = true;
+        firstCard = this;
+        
+        return;
+    }
+        
+    //second click
+    secondCard = this;
 
-        <div class="memory-card" data-arthropoda="centopeia">
-            <img src="..." alt="Centopeia" class="front-face">
-            <img src="hannibal.png" alt="Artropodes" class="back-face">
-        </div>
+    checkForMatch();
 
-        <div class="memory-card" data-arthropoda="centopeia">
-            <img src="..." alt="Centopeia" class="front-face">
-            <img src="hannibal.png" alt="Artropodes" class="back-face">
-        </div>
+}
 
-        <div class="memory-card" data-arthropoda="escorpiao">
-            <img src="...." alt="Escorpiao" class="front-face">
-            <img src="hannibal.png" alt="Artropodes" class="back-face">
-        </div>
+const checkForMatch = () => {
 
-        <div class="memory-card" data-arthropoda="escorpiao">
-            <img src="....." alt="Escorpiao" class="front-face">
-            <img src="hannibal.png" alt="Artropodes" class="back-face">
-        </div>
+    let isMatch = firstCard.dataset.arthropoda == secondCard.dataset.arthropoda;
 
-        <div class="memory-card" data-arthropoda="lagosta">
-            <img src="...." alt="Lagosta" class="front-face">
-            <img src="hannibal.png" alt="Artropodes" class="back-face">
-        </div>
+    isMatch ? disableCards() : unflipCards();
 
-        <div class="memory-card" data-arthropoda="lagosta">
-            <img src="...." alt="Lagosta" class="front-face">
-            <img src="hannibal.png" alt="Artropodes" class="back-face">
-        </div>
+}
 
-    </section>
+const disableCards = () => {
 
-    <script src="script.js"></script>
+    firstCard.removeEventListener('click', flipCard);
+
+    secondCard.removeEventListener('click', flipCard);
+
+    resetBoard();
+        
+}
+
+const unflipCards = () => {
+
+    lockBoard = true;
+
+    //not a match
+    setTimeout(() => {
+
+        firstCard.classList.remove("flip");
+        secondCard.classList.remove("flip");
+
+        resetBoard();
+
+    }, 1500); 
+}
+
+const resetBoard = () => {
+
+    [hasFlippedCard, lockBoard] = [false, false];
+
+    [firstCard, secondCard] = [null, null];
+}
+
+(function shuffle(){
+    cards.forEach(card => {
+        let randomPos = Math.floor(Math.random() * 12);
+
+        card.style.order = randomPos;
+    });
+})();
+
+cards.forEach(card => card.addEventListener('click', flipCard));
